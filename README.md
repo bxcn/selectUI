@@ -34,8 +34,7 @@ selectUI返回selectUI对象动态给select添加option元素后，通过 seelct
 * width 定义selectUI组件的宽度；
 * height 定义selectUI组件的高度;
 * addClass 给selectUI组件增加一个class选择器，作用是可以扩展默认selectUI的样式；
-* init 传入参数 option：是组件中的点击的选项，不是select中的option，而是组件中的。它的作用是在selectUI组件渲染前做的一些工作，
-* 假如：selectUI中的某一个可多个元素不可点，颜色上要区别于其他，可以给它加一个disable. before回调函数中来判断那些是不可点的，对于不可点的返回false;
+* init 传入参数 option：是组件中的点击的选项，不是select中的option，而是组件中的。它的作用是在selectUI组件渲染前做的一些工作。假如：selectUI中的某一个可多个元素不可点，颜色上要区别于其他，可以给它加一个disable. before回调函数中来判断那些是不可点的，对于不可点的返回false;
 * before 传入参数 option：是组件中的点击的选项，不是select中的option，而是组件中的。
-* before 返回值 true：组件中的选项是可点击、也选择的； false：组件中的选项是不可点击、不可选择的;
+* before 返回值 true：组件中的选项是可点击、可选择的； false：组件中的选项是不可点击、不可选择的;
 * after 传入参数 option：是组件中的点击的选项，不是select中的option，而是组件中的。它的作用是如同select onchange事件
