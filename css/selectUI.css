@@ -1,0 +1,75 @@
+.jComponentSelect {
+  position: relative;
+  width: 160px;
+  height: 30px;
+  margin: 100px auto;
+  line-height: 30px;
+}
+
+.jComponentSelect.zIndex100 {
+  z-index: 100;
+}
+
+.jComponentSelect .jComponentSelectTitleBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+.jComponentSelect .jComponentSelectTitle {
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-indent: 10px;
+}
+
+.jComponentSelect .jComponentSelectIcon {
+  float: right;
+  width: 30px;
+  height: 30px;
+  background: url("../images/jComponent/jComponent_select_icon.png") scroll no-repeat left top transparent;
+}
+
+.jComponentSelect .jComponentSelectIconOpen {
+  background-position: 0 -30px;
+}
+
+.jComponentSelect .jComponentSelectList {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.jComponentSelect li {
+  float: left;
+  width: 100%;
+  height: 30px;
+  text-indent: 10px;
+  overflow: hidden;
+  border-top: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.jComponentSelect li:first-child {
+  border-top: none;
+}
+
+.jComponentSelect li:hover {
+  background-color: #efefef;
+}

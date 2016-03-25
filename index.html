@@ -1,0 +1,305 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>radio checkbox select jQuery.component</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/jComponent.css">
+    <script type="text/javascript" src="js/min/jquery.min.js"></script>
+    <script type="text/javascript" src="js/lib/jComponent.js"></script>
+  </head>
+  <body>
+  <style>
+    .container {
+      width:500px;
+      height:auto;
+      margin:20px auto;
+      padding:30px;
+      border:1px solid #e5e5e5;
+      border-radius:5px;
+      font-family:"宋体";
+    }
+    h1 {
+      width:100%;
+      height:50px;
+      font:bold 18px/50px "microsoft yahei";
+    }
+    .item {
+      width:100%;
+      height:auto;
+      padding:10px 0;
+    }
+    .sex,
+    .sex1,
+    .checkbox,
+    .checkbox14,
+    .checkbox15,
+    .checkbox16{
+      width:auto;
+      height:20px;
+
+    }
+    label {margin-left:5px;}
+    .red{color:#f60;}
+    .disable {
+      color:#ff0430;
+    }
+  </style>
+
+
+  <select class="jComponentSelect1">
+    <option data-index="0" value="-1">请选择</option>
+    <option data-index="1" value="北京市" week="0" >北京市</option>
+    <option data-index="2" value="天津市" week="1" >天津市</option>
+    <option data-index="3" value="上海市" week="2" >上海市</option>
+    <option data-index="4" value="广州市" week="3" >广州市</option>
+    <option data-index="5" value="青岛市" week="4" >青岛市</option>
+    <option data-index="6" value="济南市" week="5" >济南市</option>
+    <option data-index="7" value="菏泽市" week="6" >菏泽市</option>
+  </select>
+
+
+
+  <div class="container">
+    <h1 class="red">采用Raido和CheckBox组件的方式在线问卷大调查</h1>
+    <div class="item">
+      <h1>1.请选择性别？</h1>
+      <div class="sex">
+        <input type="radio"  name="name" value="1" >
+        <label>男</label>
+      </div>
+      <div class="sex">
+        <input type="radio" name="name" value="1">
+        <label>女</label>
+      </div>
+    </div>
+    <div class="item">
+      <h1>2.你喜欢JavaScript这门动态弱类型语言吗？</h1>
+      <div class="sex1">
+        <input type="radio"  name="name1" value="1" >
+        <label>喜欢</label>
+      </div>
+      <div class="sex1">
+        <input type="radio" name="name1" value="1">
+        <label>不喜欢</label>
+      </div>
+    </div>
+    <div class="item">
+      <h1>3.我的优点有那些?</h1>
+      <div class="checkbox">
+        <input type="checkbox"  name="checkbox" value="1"  >
+        <label>好男人/好女人</label>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" name="checkbox" value="1" >
+        <label>富二代</label>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" name="checkbox" value="1" >
+        <label>星二代</label>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" name="checkbox" value="1" >
+        <label>学习好</label>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" name="checkbox" value="1" >
+        <label>长的漂亮</label>
+      </div>
+    </div>
+    <div class="item">
+      <h1>4.我计过的书箱有那些？</h1>
+      <div class="checkbox14">
+        <input type="checkbox"  name="checkbox" value="1" >
+        <label>《Java》</label>
+      </div>
+      <div class="checkbox14">
+        <input type="checkbox" name="checkbox" value="1"  >
+        <label>《C++》</label>
+      </div>
+      <div class="checkbox14">
+        <input type="checkbox" name="checkbox" value="1"  >
+        <label>《JavaScript》</label>
+      </div>
+      <div class="checkbox14">
+        <input type="checkbox" name="checkbox" value="1"  >
+        <label>《C#》</label>
+      </div>
+      <div class="checkbox14">
+        <input type="checkbox" name="checkbox" value="1"  >
+        <label>《React》</label>
+      </div>
+      <div class="checkbox14">
+        <input type="checkbox"  name="checkbox" value="1" >
+        <label>《Java》</label>
+      </div>
+      <div class="checkbox14">
+        <input type="checkbox" name="checkbox" value="1"  >
+        <label>《C++》</label>
+      </div>
+      <div class="checkbox14">
+        <input type="checkbox" name="checkbox" value="1"  >
+        <label>《JavaScript》</label>
+      </div>
+      <div class="checkbox14">
+        <input type="checkbox" name="checkbox" value="1"  >
+        <label>《C#》</label>
+      </div>
+      <div class="checkbox14">
+        <input type="checkbox" name="checkbox" value="1"  >
+        <label>《React》</label>
+      </div>
+    </div>
+    <div class="item">
+      <h1>5.是否全选？</h1>
+      <div class="checkbox15 ">
+        <input type="checkbox" class="allCheck"  name="checkbox" value="1" >
+        <label>全选</label>
+      </div>
+      <br/>
+      <div class="checkbox16">
+        <input type="checkbox"  name="checkbox" value="1" >
+        <label>《Java》</label>
+      </div>
+      <div class="checkbox16">
+        <input type="checkbox"  name="checkbox" value="1" >
+        <label>《Java》</label>
+      </div>
+      <div class="checkbox16">
+        <input type="checkbox"  name="checkbox" value="1" >
+        <label>《Java》</label>
+      </div>
+      <div class="checkbox16">
+        <input type="checkbox"  name="checkbox" value="1" >
+        <label>《Java》</label>
+      </div>
+      <div class="checkbox16">
+        <input type="checkbox"  name="checkbox" value="1" >
+        <label>《Java》</label>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <h1>代码调用方式</h1>
+    <pre>
+    $(function(){
+        $(".sex").radioOrange();
+        $(".sex1").radioBlue();
+        $(".checkbox").checkboxOrange();
+        $(".checkbox14").checkboxBlue();
+      })
+    </pre>
+  </div>
+
+
+
+
+    <select class="jComponentSelect ">
+      <option value="-1">请选择</option>
+      <option value="北京市">北京市</option>
+      <option value="天津市" selected>天津市</option>
+      <option value="上海市">上海市</option>
+      <option value="广州市">广州市</option>
+      <option value="青岛市">青岛市</option>
+      <option value="济南市">济南市</option>
+      <option value="菏泽市">菏泽市</option>
+    </select>
+
+    <select class="jComponentSelect">
+      <option value="-1">请选择</option>
+      <option value="北京市">北京市</option>
+      <option value="天津市" selected>天津市</option>
+      <option value="上海市">上海市</option>
+      <option value="广州市">广州市</option>
+      <option value="青岛市">青岛市</option>
+      <option value="济南市">济南市</option>
+      <option value="菏泽市">菏泽市</option>
+    </select>
+  <!--  <select class="jComponentSelect">
+      <option value="-1">请选择</option>
+      <option value="北京市">北京市</option>
+      <option value="北京市">天津市</option>
+      <option value="北京市">上海市</option>
+      <option value="北京市">广州市</option>
+      <option value="北京市">青岛市</option>
+      <option value="北京市">济南市</option>
+      <option value="北京市">菏泽市</option>
+    </select>
+    <select class="jComponentSelect">
+      <option value="-1">请选择</option>
+      <option value="北京市">北京市</option>
+      <option value="北京市">天津市</option>
+      <option value="北京市">上海市</option>
+      <option value="北京市">广州市</option>
+      <option value="北京市">青岛市</option>
+      <option value="北京市">济南市</option>
+      <option value="北京市">菏泽市</option>
+    </select>
+    <select class="jComponentSelect">
+      <option value="-1">请选择</option>
+      <option value="北京市">北京市</option>
+      <option value="北京市">天津市</option>
+      <option value="北京市">上海市</option>
+      <option value="北京市">广州市</option>
+      <option value="北京市">青岛市</option>
+      <option value="北京市">济南市</option>
+      <option value="北京市">菏泽市</option>
+    </select>-->
+
+<!--
+    <div class="jComponentSelect">
+      <div class="jComponentSelectTitleBox">
+        <div class="jComponentSelectTitle" title="请选择">请选择请选择请选择请选择请选择</div>
+        <div class="jComponentSelectIcon"></div>
+      </div>
+      <ul class="jComponentSelectList">
+        <li class="option" value="{optionValue}">{optionName}</li>
+      </ul>
+    </div>-->
+
+    <script>
+      $(function(){
+
+        $(".jComponentSelect1").selectUI({
+          width:350,
+          height:30,
+          "name":"name",
+          "addClass": "year",
+          init: function( option ){
+            var week = +(option.attr("week"));
+            if ( week == 0 ) {
+              option.addClass("disable");
+            }
+          },
+          click: function( option ) {
+
+            var week = +(option.attr("week"));
+            if ( week == 0 ) {
+              return false;
+            }
+
+            return true;
+          }
+        });
+
+        $(".sex").radioOrange();
+        $(".sex1").radioBlue();
+        $(".checkbox").checkboxOrange();
+        $(".allCheck").checkboxBlue();
+
+        var checkbox14 = $(".checkbox14, .checkbox15").checkboxBlue();
+        var checkbox16 = $(".checkbox16").checkboxBlue();
+
+        $(".allCheck").change(function(){
+
+          if ( $(this).prop("checked") ) {
+            checkbox16.addChecked();
+          } else {
+            checkbox16.removeChecked();
+          }
+
+        });
+      });
+    </script>
+  </body>
+</html>
