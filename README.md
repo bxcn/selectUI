@@ -26,7 +26,7 @@
 
       }
     });
-```    
+```
 
     selectUI返回selectUI对象动态给select添加option元素后，通过 seelctUI.render渲染可以对selectUI组件中的列表进行更新。
 
