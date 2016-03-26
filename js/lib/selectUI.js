@@ -132,6 +132,9 @@
       });
 
 
+    },
+    getSelectedOption: function() {
+      return this.jSelect.find(":selected");
     }
   }
 

@@ -38,3 +38,4 @@ selectUI返回selectUI对象动态给select添加option元素后，通过 seelct
 * before 传入参数 option：是组件中的点击的选项，不是select中的option，而是组件中的。
 * before 返回值 true：组件中的选项是可点击、可选择的； false：组件中的选项是不可点击、不可选择的;
 * after 传入参数 option：是组件中的点击的选项，不是select中的option，而是组件中的。它的作用是如同select onchange事件
+* getSelectedOption 函数返回select元素选中的option元素jQuery对象
