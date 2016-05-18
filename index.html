@@ -13,7 +13,7 @@
   .container {
     width: 500px;
     height: auto;
-    margin: 20px auto;
+    margin: 80px auto;
     padding: 30px;
     border: 1px solid #e5e5e5;
     border-radius: 5px;
@@ -57,38 +57,64 @@
 </style>
 
 
-<select id="select1" class="jComponentSelect1">
+<select id="select1" class="selectUI mt100">
   <option data-index="0" value="-1">请选择</option>
-  <option data-index="1" value="北京市" week="0" >北京市</option>
-  <option data-index="2" value="天津市" week="1" >天津市</option>
-  <option data-index="3" value="上海市" week="2">上海市</option>
-  <option data-index="4" value="广州市" week="3">广州市</option>
-  <option data-index="5" value="青岛市" week="4">青岛市</option>
-  <option data-index="6" value="济南市" week="5">济南市</option>
-  <option data-index="7" value="菏泽市" week="6">菏泽市</option>
+  <option data-index="1" value="北京市">北京市</option>
+  <option data-index="2" value="天津市">天津市</option>
+  <option data-index="3" value="上海市">上海市</option>
+  <option data-index="4" value="广州市">广州市</option>
+  <option data-index="5" value="青岛市">青岛市</option>
+  <option data-index="6" value="济南市">济南市</option>
+  <option data-index="7" value="菏泽市">菏泽市</option>
+</select>
+
+<select id="select2" class="selectUI">
+  <option data-index="0" value="-1">请选择</option>
+  <option data-index="1" value="北京市">北京市</option>
+  <option data-index="2" value="天津市">天津市</option>
+  <option data-index="3" value="上海市">上海市</option>
+  <option data-index="4" value="广州市">广州市</option>
+  <option data-index="5" value="青岛市">青岛市</option>
+  <option data-index="6" value="济南市">济南市</option>
+  <option data-index="7" value="菏泽市">菏泽市</option>
 </select>
 
 <script>
 
     var selectUI = $("#select1").selectUI({
-      width: 350,
+      width: 200,
       height: 30,
-      "name": "name",
-      "addClass": "year",
+      addClass:"mt100 ml200",
       init: function (option) {
-        var week = +(option.attr("week"));
-        if (week == 0) {
+        // 初始化状态，把data-index等0的设置成disable,不可点击
+        var index = +(option.attr("data-index"));
+        if (index == 1) {
           option.addClass("disable");
         }
       },
       before: function (option) {
-
-        var week = +(option.attr("week"));
-        if (week == 0) {
+        // option获取点击的元素，拿到data-index的值，如果等于1就返回false;
+        var index = +(option.attr("data-index"));
+        if (index == 1) {
+          // 返回false时，说明这个元素是不可选择的；
           return false;
         }
-
         return true;
+      }
+    });
+
+    var selectUI = $("#select2").selectUI({
+      width: 200,
+      height: 30,
+      addClass:"mt200 ml200",
+      after: function (option) {
+        console.log(option)
+        var val = $(option).attr("value");
+        if ( val == -1 ) {
+          alert("请选择");
+        } else {
+          alert("您选择的是" + val);
+        }
       }
     });
 

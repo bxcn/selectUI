@@ -13,10 +13,11 @@
     this.jSelect = jSelect;
     this.jOptions = this.jSelect.find("option");
     this.jOptionUI = null;
+    settings.addClass = settings.addClass || "";
 
 
     var selectHTML = "";
-    selectHTML += "<div id='"+ this.selectContainerUI +"' class=\"jComponentSelect " + settings.addClass + "\">";
+    selectHTML += "<div id='"+ this.selectContainerUI +"' class=\"selectUI " + settings.addClass + "\">";
     selectHTML += "   <div id='" + this.selectTitleContainerUI + "'  class=\"jComponentSelectTitleBox\">";
     selectHTML += "     <div id='" + this.selectIconUI + "' class=\"jComponentSelectIcon\"></div>";
     selectHTML += "     <div id='" +this.selectTitleUI + "'  class=\"jComponentSelectTitle\" ></div>";
@@ -42,36 +43,10 @@
   SelectUI.prototype = {
     constructor: SelectUI,
     init: function() {
-      // 给每个option加data-index索引
-      var settings = this.settings;
-
-        /** 初始化一些配置
-         *  1、给select的option 增加序号
-         *  2、回调函数init　对每一个option元素的操作
-         */
-
-      this.jOptions.map(function(i, data ){
-        $(data).attr("data-index", i);
-        settings.init.call(this, $(data));
-      });
-
-
       // 渲染optionUI
       this.render();
-
-      // 渲染显示当前的样式 如果找不到selected，默认把第一个做了选中的
-      // 渲染selectUI组件的标题及改变打开selectUI列表时的icon状态
-      this.renderHead(this.jSelect.find(":selected"));
-
       // 绑定事件
       this.bindEvent();
-
-      this.jSelectContainerUI.width(settings.width).height(settings.height).css({"line-height": settings.height+"px"});
-      this.jSelectIconUI.width(settings.height).height(settings.height);
-      this.jSelectListUI.css({top: settings.height-1});
-      this.jOptionUI.width(settings.width).height(settings.height);
-
-
     },
     renderHead: function( obj ) {
 
@@ -88,19 +63,40 @@
     },
     render: function() {
 
+      // 给每个option加data-index索引
+      var settings = this.settings;
+
       // 重新获取Option数据
       this.jOptions = this.jSelect.find("option");
+
+      /** 初始化一些配置
+       *  1、给select的option 增加序号
+       *  2、回调函数init　对每一个option元素的操作
+       */
+      this.jOptions.map(function(i, data ){
+        $(data).attr("data-index", i);
+        settings.init.call(this, $(data));
+      });
+
+      // 渲染显示当前的样式 如果找不到selected，默认把第一个做了选中的
+      // 渲染selectUI组件的标题及改变打开selectUI列表时的icon状态
+      this.renderHead(this.getSelectedOption());
+
+      this.jSelectContainerUI.width(settings.width).height(settings.height).css({"line-height": settings.height+"px"});
+      this.jSelectIconUI.width(settings.height).height(settings.height);
+      this.jSelectListUI.css({top: settings.height-1});
+      this.jOptions.width(settings.width).height(settings.height);
 
       // 把select中的option转换成li元素
       var optionHTML = this.jSelect.html().replace(/(option)/gi,"li");
 
-      this.jSelectListUI.html(optionHTML);
+      this.jSelectListUI.html(optionHTML).css({"max-height": settings.height * 6});
 
-      this.jOptionUI = this.jSelectListUI.find("li");
     },
     // 修改原生select中的option
     changeNativeSelect: function( index ) {
-      this.jOptions.eq( index ).attr("selected","selected");
+      //this.jOptions.removeAttr("selected");
+      this.jOptions.eq( index ).prop("selected",true);
     },
     open: function(  ) {
       this.jSelectListUI.show();
@@ -112,14 +108,20 @@
     },
     bindEvent: function() {
       var that = this;
-      $("#" + this.selectTitleContainerUI ).click(function() {
-        if ( that.jSelectListUI.css("display") == "none") {
-          that.open();
-        } else {
-          that.close();
-        }
-      });
 
+/*      $(".subAccount").hover(function(){
+      $(".accountMangment").show();
+    },
+    function(){
+      $(".accountMangment").hide();
+    });*/
+    var list = $("#" + that.selectOptionListContainer);
+
+      $("#" + this.selectContainerUI ).hover(function() {
+        that.open();
+      }, function(){
+        that.close();
+      });
 
       this.jSelectListUI.on("click", "li", function(){
         var _that = $(this);
@@ -127,6 +129,7 @@
         if ( callback ) {
           that.renderHead(_that);
         }
+
         //select change执行，回调函数
         that.settings.after.call(this, _that);
       });
@@ -134,7 +137,10 @@
 
     },
     getSelectedOption: function() {
-      return this.jSelect.find(":selected");
+      // 返回选中的option
+      var selectedArr = this.jSelect.find("option:selected");
+      // 如果没有就返回第一个option
+      return selectedArr.length > 0 ? selectedArr : this.jSelect.find("option").eq(0);
     }
   }
 
@@ -143,12 +149,20 @@
     var defaults = {
       height:30,
       init: function(){},
-      before:function(option){},
+      before:function(option){
+        // false是不可点的，true是可点的
+        return true;
+      },
       after: function(option) {
         // false是不可点的，true是可点的
         return true;
       }
     };
+
+    // 如果没有找到元素就为0
+    if ($(this).size() == 0 ) {
+      return {};
+    }
 
     var settings = $.extend({},defaults, options);
 
@@ -157,17 +171,3 @@
     return selectUI;
   };
 })(jQuery, window, document );
-
-/*
- $("#reacordState").jComponentSelect({
- width:200,
- height:30,
- addClass:"fl",
- click: function(){
- return;
- },
- after: function(){
- checkDataList();
- }
- });
- * */
