@@ -1,47 +1,41 @@
-.selectUI {
+.jComponentSelect {
   position: relative;
-  width: 160px;
+  width: 100%;
   height: 30px;
-  line-height: 30px;
 }
-
-.selectUI.zIndex100 {
+.jComponentSelect.zIndex100 {
   z-index: 100;
 }
-
-.selectUI .jComponentSelectTitleBox {
+.jComponentSelect .jComponentSelectTitleBox {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border: 1px solid #ccc;
+  border: 1px solid #e5e5e5;
   box-sizing: border-box;
   overflow: hidden;
   background-color: #fff;
   border-radius: 3px;
 }
-
-.selectUI .jComponentSelectTitle {
+.jComponentSelect .jComponentSelectTitle {
   height: 100%;
+  text-indent:5px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  text-indent: 10px;
 }
-
-.selectUI .jComponentSelectIcon {
+.jComponentSelect .jComponentSelectIcon {
   float: right;
   width: 30px;
   height: 30px;
-  background: url("../images/selectUI/selectUI_icon.png") scroll no-repeat left top transparent;
+  background: url("../images/selectUI/selectUI_icon.png") scroll no-repeat center top transparent;
 }
 
-.selectUI .jComponentSelectIconOpen {
-  background-position: 0 -30px;
+.jComponentSelect .jComponentSelectIconOpen {
+  background: url("../images/selectUI/selectUI_icon.png") scroll no-repeat center bottom transparent;
 }
-
-.selectUI .jComponentSelectList {
+.jComponentSelect .jComponentSelectList {
   display: none;
   position: absolute;
   top: 0;
@@ -50,26 +44,25 @@
   height: auto;
   overflow: hidden;
   border-radius: 3px;
-  border: 1px solid #ccc;
+  border: 1px solid #e5e5e5;
   box-sizing: border-box;
   background-color: #fff;
-	overflow-y:auto;
+  z-index:1;
+  overflow-y:auto;
 }
-
-.selectUI li {
+.jComponentSelect li {
   float: left;
   width: 100%;
   height: 30px;
-  text-indent: 10px;
+  text-align:left;
+  text-indent:5px;
   overflow: hidden;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #e5e5e5;
   box-sizing: border-box;
 }
-
-.selectUI li:first-child {
+.jComponentSelect li:first-child {
   border-top: none;
 }
-
-.selectUI li:hover {
+.jComponentSelect li:hover {
   background-color: #efefef;
 }
